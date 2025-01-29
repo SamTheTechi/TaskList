@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #1E201E;
+  --text-color: #ECDFCC;
+  --primary-color: #697565;
+  --secondary-color: #3C3D37;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1E201E;
+  --text-color: #ECDFCC;
+  --primary-color: #697565;
+  --secondary-color: #3C3D37;
+  --spinner-color: #EFF3EA;
+}
+
+[data-theme="dark"] .svg {
+  filter: invert(85%) sepia(10%) saturate(120%) hue-rotate(20deg);
+}
+
+[data-theme="light"] {
+  --bg-color: #ced3be;
+  --text-color: #070707;
+  --primary-color: #EFF3EA;
+  --secondary-color: #e0ddc5;
+  --spinner-color: #3C3D37;
+}
+
+[data-theme="light"] .svg {
+  filter: invert(10%) sepia(20%) saturate(200%) hue-rotate(350deg);
+}

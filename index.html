@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="stylesheet" href="src/style/style.css" />
+  <link rel="stylesheet" href="src/style/left.css" />
+  <link rel="stylesheet" href="src/style/right.css" />
+  <title>TickList</title>
+</head>
+
+<body>
+  <section class="leftsection">
+    <div class="title">
+      <div class="spinner">
+        <div class="spinner1"></div>
+      </div>
+      <div class="titler">
+        TickList
+      </div>
+    </div>
+    <form class="addtask">
+      <input type="text" placeholder="Add Item" class="inputfield">
+      <button class="addbutton"><span>+</span> Add Item</button>
+    </form>
+    <div class="tasklist">
+    </div>
+  </section>
+  <section class="rightsection">
+    <div class="controls">
+      <div>
+        <button class="imageback"><img class="svg" src="wallchange.svg"></button>
+        <button class="theme"><img class="svg" src="darkmode.svg"></button>
+        <button><img class="svg" src="cloud.svg"></button>
+      </div>
+    </div>
+    <div class="content">
+      <div>
+        <header class="header">
+          halwa!!!
+        </header>
+        <textarea class="description" placeholder="Enter details here..."></textarea>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="src/main.js"></script>
+<script src="src/background.js"></script>
+<script src="src/theme.js"></script>
+
+</html>
