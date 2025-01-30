@@ -1,9 +1,13 @@
+import { detectDevice } from "./detect";
+
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector(".addbutton");
   const input = document.querySelector(".inputfield");
   const list = document.querySelector(".tasklist");
   const head = document.querySelector(".header");
   const description = document.querySelector(".description");
+  const content = document.querySelector(".content");
+  const leftSection = document.querySelector(".leftsection");
 
   const load = () => {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || {};
@@ -22,8 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
     di.className = "textarea";
     remove.className = "itembtn";
 
-    di.innerText = value;
-    remove.innerText = "x";
+    di.textContent = value;
+    head.textContent = value;
+    description.value = ""
+    remove.textContent = "x";
     remove.onclick = () => removeEle(li, value);
 
     li.appendChild(di);
@@ -32,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     li.style.flexShrink = "0";
     li.style.height = "2rem";
 
-    di.addEventListener("click", () => loadDesc(value));
+    li.addEventListener("click", () => loadDesc(value));
 
     setTimeout(() => {
       li.classList.add("added");
@@ -49,14 +55,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const loadDesc = (name) => {
     const data = JSON.parse(localStorage.getItem("tasks")) || {};
     description.value = data[name] || "";
-    head.innerText = name;
+    head.textContent = name;
+    content.classList.remove("hide");
+    content.classList.add("show");
     description.oninput = () => saveDesc(name, description.value);
   };
 
   addBtn.addEventListener("click", (e) => {
     e.preventDefault();
     const name = input.value.trim();
-    if (name) {
+    const item = JSON.parse(localStorage.getItem("tasks")) || {};
+    if (name && !item.hasOwnProperty(name)) {
       addTask(name);
       saveDesc(name, "");
       input.value = "";
@@ -65,7 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   list.addEventListener("click", (e) => {
     if (e.target.classList.contains("textarea")) {
-      loadDesc(e.target.innerText);
+      loadDesc(e.target.textContent);
+      if (detectDevice()) leftSection.classList.toggle("open");
     }
   });
 
@@ -83,6 +93,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = JSON.parse(localStorage.getItem("tasks")) || {};
       delete data[name];
       localStorage.setItem("tasks", JSON.stringify(data));
+      const keys = Object.keys(data);
+      if (keys.length > 0) {
+        const index = keys[0];
+        head.textContent = index || "";
+        description.value = data[index] || "";
+      } else {
+        content.classList.remove("show");
+        content.classList.add("hide");
+      }
     }, 500);
   }
 

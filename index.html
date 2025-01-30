@@ -2,21 +2,22 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-  <link rel="stylesheet" href="/src/style/style.css" />
+  <link rel="stylesheet" href="/src/style.css" />
   <title>TickList</title>
   <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/switch.js"></script>
 </head>
 
 <body>
+  <button class="spinner">
+    <div class="spinnerin"></div>
+  </button>
   <section class="leftsection">
     <div class="title">
-      <div class="spinner">
-        <div class="spinnerin"></div>
-      </div>
-      <div class="titler">
-        TickList
-      </div>
+      TickList
     </div>
     <form class="addtask">
       <input type="text" placeholder="Add Item" class="inputfield">
@@ -28,23 +29,20 @@
   <section class="rightsection">
     <div class="controls">
       <div>
-        <button class="imageback"><img class="svg" src="wallchange.svg"></button>
-        <button class="theme"><img class="svg" src="darkmode.svg"></button>
-        <button><img class="svg" src="cloud.svg"></button>
+        <button class="imageback"><img class="svg1" src="wallchange.svg"></button>
+        <button class="theme"><img class="svg2" src="darkmode.svg"></button>
+        <button><img class="svg3" src="cloud.svg"></button>
       </div>
     </div>
     <div class="content">
       <div>
         <header class="header">
-          halwa!!!
+          ...
         </header>
         <textarea class="description" placeholder="Enter details here..."></textarea>
       </div>
     </div>
   </section>
 </body>
-
-<script type="module" src="/src/background.js"></script>
-<script type="module" src="/src/theme.js"></script>
 
 </html>
