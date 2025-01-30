@@ -178,7 +178,7 @@ body {
   box-shadow: 0px -5px 20px 0px var(--primary-color), 0px 5px 20px 0px var(--spinner-color);
 }
 
-.spinner1 {
+.spinnerin {
   background-color: var(--bg-color);
   transition: background 0.3s, color 0.3s;
   width: 50px;
